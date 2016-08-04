@@ -13,6 +13,12 @@ app.get('/now', function (req, res) {
   res.send(new Date());
 });
 
+app.get('/when', function (req, res) {
+  var offset = req.params.offset;
+  var offsetInt = parseInt(offset, 10) || 0;
+  res.send(new Date(Date.now() + offsetInt));
+});
+
 app.set('port', process.env.PORT || 1337);
 
 app.listen(app.get('port'));
