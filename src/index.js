@@ -1,4 +1,5 @@
 // this is where the magic happens
+require('dotenv').config();
 var express = require('express');
 var app = express();
 
@@ -13,3 +14,8 @@ app.get('/now', function (req, res) {
 app.listen(port);
 
 console.log('listening on: ' + port);
+
+setTimeout(function () {
+  console.log('I am bored now');
+  process.exit(1);
+}, 10000);
