@@ -4,12 +4,7 @@ var path = require('path');
 var uuid = require('uuid');
 var app = express();
 
-var knex = require('knex')({
-  client: 'sqlite3',
-  connection: {
-    filename: './storage/dev.sqlite3'
-  }
-});
+var knex = require('./createKnexConnection')();
 
 app.use(function (req, res, next) {
   req.id = uuid.v4();
