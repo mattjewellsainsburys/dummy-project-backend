@@ -2,16 +2,11 @@ module.exports = function () {
   console.log(Object.keys(process.env).filter(function (key) {
     return /$RDS/.test(key);
   }));
-  if (process.env.RDS_DB_NAME) {
+  if (process.env.RDS_CONNECTION_STRING) {
     console.log('attempting to connect to amazon rds');
     return {
       client: 'pg',
-      connection: {
-        host: process.env.RDS_HOSTNAME,
-        user: process.env.RDS_USERNAME,
-        password: process.env.RDS_PASSWORD,
-        database: process.env.RDS_DB_NAME
-      }
+      connection: process.env.RDS_CONNECTION_STRING
     };
   }
   console.log('no rds vars found, attempting to connect to sqlite');
