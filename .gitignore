@@ -1,6 +1,7 @@
 .idea
 node_modules/*
 build/*
+storage/*
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
