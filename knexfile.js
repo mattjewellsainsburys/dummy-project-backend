@@ -1,12 +1,3 @@
 // Update with your config settings.
 
-module.exports = {
-
-  development: {
-    client: 'sqlite3',
-    connection: {
-      filename: './storage/dev.sqlite3'
-    }
-  }
-
-};
+module.exports = require('./src/createKnexConnectionConfig')();

@@ -4,7 +4,7 @@ var path = require('path');
 var uuid = require('uuid');
 var app = express();
 
-var knex = require('./createKnexConnection')();
+var knex = require('knex')(require('./createKnexConnectionConfig')());
 
 app.use(function (req, res, next) {
   req.id = uuid.v4();
